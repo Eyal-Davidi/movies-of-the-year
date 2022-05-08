@@ -1,19 +1,18 @@
-package com.example.madlevel6task2
+package com.example.madlevel6task2.ui
 
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import androidx.navigation.fragment.findNavController
-import com.example.madlevel6task2.databinding.FragmentMoviesBinding
+import com.example.madlevel6task2.databinding.FragmentSelectedMovieBinding
 
 /**
- * A simple [Fragment] subclass as the default destination in the navigation.
+ * A simple [Fragment] subclass as the second destination in the navigation.
  */
-class MoviesFragment : Fragment() {
+class SelectedMovieFragment : Fragment() {
 
-    private var _binding: FragmentMoviesBinding? = null
+    private var _binding: FragmentSelectedMovieBinding? = null
 
     // This property is only valid between onCreateView and
     // onDestroyView.
@@ -24,7 +23,7 @@ class MoviesFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View? {
 
-        _binding = FragmentMoviesBinding.inflate(inflater, container, false)
+        _binding = FragmentSelectedMovieBinding.inflate(inflater, container, false)
         return binding.root
 
     }
@@ -32,8 +31,8 @@ class MoviesFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-//        binding.buttonFirst.setOnClickListener {
-//            findNavController().navigate(R.id.action_MoviesFragment_to_SelectedMovieFragment)
+//        binding.buttonSecond.setOnClickListener {
+//            findNavController().navigate(R.id.action_SecondFragment_to_FirstFragment)
 //        }
     }
 
