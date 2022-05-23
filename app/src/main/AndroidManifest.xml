@@ -16,7 +16,7 @@
         tools:ignore="GoogleAppIndexingWarning"
         tools:targetApi="m">
         <activity
-            android:name=".ui.MainActivity"
+            android:name="madlevel6task2.ui.ui.MainActivity"
             android:label="@string/app_name"
             android:theme="@style/Theme.MadLevel6Task2.NoActionBar"
             android:exported="true">

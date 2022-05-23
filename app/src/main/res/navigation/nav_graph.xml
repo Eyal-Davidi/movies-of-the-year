@@ -7,16 +7,16 @@
 
     <fragment
         android:id="@+id/MoviesFragment"
-        android:name="com.example.madlevel6task2.ui.MoviesFragment"
+        android:name="madlevel6task2.ui.ui.MovieFragment"
         android:label="@string/movies_fragment_label"
-        tools:layout="@layout/fragment_movies">
+        tools:layout="@layout/fragment_movie">
         <action
             android:id="@+id/action_MoviesFragment_to_SelectedMovieFragment"
             app:destination="@id/SelectedMovieFragment" />
     </fragment>
     <fragment
         android:id="@+id/SelectedMovieFragment"
-        android:name="com.example.madlevel6task2.ui.SelectedMovieFragment"
+        android:name="madlevel6task2.ui.ui.SelectedMovieFragment"
         android:label="@string/selected_movie_fragment_label"
         tools:layout="@layout/fragment_selected_movie"/>
 </navigation>

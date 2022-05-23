@@ -1,4 +1,4 @@
-package com.example.madlevel6task2.ui
+package madlevel6task2.ui.ui
 
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
