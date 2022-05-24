@@ -1,7 +1,8 @@
 package madlevel6task2.ui.api
 
-import madlevel6task2.ui.model.Movie
+import Movie
 import retrofit2.http.GET
+import retrofit2.http.Query
 
 
 ////The only format we support is JSON. If you are using a JavaScript library and need to make requests
@@ -21,7 +22,21 @@ interface MovieApiService {
 
     // The GET method needed to retrieve a random number trivia.
 //    @GET("/random/trivia?json")
-    @GET("/discover/movie?sort_by=popularity.desc")
-    suspend fun getRandomNumberTrivia(): Movie
-    // suspend fun getBestMoviesOfYear
+    @GET("3/discover/movie")
+//    @GET("movie/550?api_key=***REMOVED***")
+//    @GET("https://api.themoviedb.org/3/genre/movie/list?api_key=***REMOVED***&language=en-US")
+//    suspend fun getRandomNumberTrivia(): Movie
+
+     suspend fun getMostPopularMovies(@Query("primary_release_year") year:Int,
+                                      @Query("page") page:Int,
+                                      @Query("api_key") apiKey:String,
+                                        ) : Movie
+
+//    suspend fun getMostPopularMovies(
+//                                     @Query("api_key") apiKey:String,
+//    ) : Movie
+//    ) : MovieApiService
+//    suspend fun getMostPopularMovies(): List<Movie>
+//    val movies: List<Movie>?
+     ////xxxxxx movies list
 }

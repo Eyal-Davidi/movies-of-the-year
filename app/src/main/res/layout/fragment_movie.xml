@@ -17,7 +17,7 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <EditText
-        android:id="@+id/yearTitle"
+        android:id="@+id/etYear"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="9dp"
@@ -45,7 +45,7 @@
         android:textColor="@color/black"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/yearTitle" />
+        app:layout_constraintTop_toBottomOf="@+id/etYear" />
 
 <!--    <ImageView-->
 <!--        android:id="@+id/imageMovies"-->
@@ -68,6 +68,7 @@
         app:layout_constraintTop_toBottomOf="@+id/btnSubmit" />
 
     <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/rvMovies"
         android:layout_width="0dp"
         android:layout_height="0dp"
         android:layout_marginTop="200dp"

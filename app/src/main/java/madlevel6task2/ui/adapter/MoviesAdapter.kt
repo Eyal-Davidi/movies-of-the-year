@@ -1,5 +1,6 @@
 package madlevel6task2.ui.adapter
 
+import Movie
 import android.content.Context
 import android.view.LayoutInflater
 import android.view.View
@@ -7,10 +8,12 @@ import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import com.example.madlevel6task2.R
-import com.example.madlevel6task2.databinding.FragmentMovieBinding
-import madlevel6task2.ui.model.Movie
+import com.example.madlevel6task2.databinding.ItemMoviesBinding
+import madlevel6task2.ui.api.MovieApiService
 
-class MoviesAdapter(private val movies: List<Movie>, private val onClick: (Movie) -> Unit) :
+//class MoviesAdapter(private val movies: List<Movie>, private val onClick: (Movie) -> Unit) :
+class MoviesAdapter(private val movies: List<Movie>) :
+//class MoviesAdapter(private val movies: List<MovieApiService>):
     RecyclerView.Adapter<MoviesAdapter.ViewHolder>() {
 
     private lateinit var context: Context
@@ -23,21 +26,26 @@ class MoviesAdapter(private val movies: List<Movie>, private val onClick: (Movie
         )
     }
 
-    ////XXXXX
     override fun getItemCount(): Int = movies.size
 
     override fun onBindViewHolder(holder: ViewHolder, position: Int) = holder.bind(movies[position])
 
     inner class ViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
-        init {
-            itemView.setOnClickListener { onClick(movies[adapterPosition]) }
-        }
+//        init {
+//            itemView.setOnClickListener { onClick(movies[adapterPosition]) }
+//        }
 
-        private val binding = FragmentMovieBinding.bind(itemView)
+        private val binding = ItemMoviesBinding.bind(itemView)
 
 //        fun bind(movie: Movie) {
 //            Glide.with(context).load(movie.getImageUrl()).into(binding.ivColor)
 //        }
-    }
 
+        fun bind(movie: Movie) {
+            Glide.with(context).load(movie).into(binding.ivMovies)
+        }
+
+//        suspend fun bind(movieApiService: MovieApiService) {
+//            Glide.with(context).load(movieApiService.getMostPopularMovies(year = 2020, page = 2, apiKey = "***REMOVED***")).into(binding.ivMovies)
+    }
 }

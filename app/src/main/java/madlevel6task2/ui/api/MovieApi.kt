@@ -9,7 +9,11 @@ class MovieApi {
     companion object {
         // The base url off the api.
 //        private const val baseUrl = "http://numbersapi.com/"
-        private const val baseUrl = "https://api.themoviedb.org/3/movie/550?api_key=***REMOVED***"
+//        private const val baseUrl = "https://api.themoviedb.org/3/"
+        private const val baseUrl = "https://api.themoviedb.org/"
+//        private const val baseUrl = "https://api.themoviedb.org/3/genre/movie/list?api_key=***REMOVED***&language=en-US"
+
+        //https://api.themoviedb.org/3/discover/movie?api_key=***REMOVED***
 
 
 
