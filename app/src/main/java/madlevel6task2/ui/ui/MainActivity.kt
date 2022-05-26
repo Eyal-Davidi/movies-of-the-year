@@ -8,6 +8,8 @@ import androidx.navigation.ui.navigateUp
 import androidx.navigation.ui.setupActionBarWithNavController
 import android.view.Menu
 import android.view.MenuItem
+import androidx.navigation.NavController
+import androidx.navigation.fragment.NavHostFragment
 import com.example.madlevel6task2.R
 import com.example.madlevel6task2.databinding.ActivityMainBinding
 

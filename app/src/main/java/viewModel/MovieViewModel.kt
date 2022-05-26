@@ -49,4 +49,17 @@ class MovieViewModel(application: Application) : AndroidViewModel(application) {
             }
         }
     }
+
+    fun connectMovieDetails() {
+        viewModelScope. launch {
+            try {
+                //the triviaRepository sets it's own livedata property
+                //our own trivia property points to this one
+                movieRepository.getMovieDetails()
+            } catch (error: MovieRepository.MovieRefreshError) {
+                _errorText.value = error.message
+                Log.e("Movie error", error.cause.toString())
+            }
+        }
+    }
 }

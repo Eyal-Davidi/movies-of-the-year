@@ -10,9 +10,8 @@ import com.bumptech.glide.Glide
 import com.example.madlevel6task2.R
 import com.example.madlevel6task2.databinding.ItemMoviesBinding
 
-//class MoviesAdapter(private val movies: List<Movie>, private val onClick: (Movie) -> Unit) :
-class MoviesAdapter(private val movies: List<Movie>) :
-//class MoviesAdapter(private val movies: List<MovieApiService>):
+class MoviesAdapter(private val movies: List<Movie>, private val onClick: (Movie) -> Unit) :
+//class MoviesAdapter(private val movies: List<Movie>) :
     RecyclerView.Adapter<MoviesAdapter.ViewHolder>() {
 
     private lateinit var context: Context
@@ -30,9 +29,9 @@ class MoviesAdapter(private val movies: List<Movie>) :
     override fun onBindViewHolder(holder: ViewHolder, position: Int) = holder.bind(movies[position])
 
     inner class ViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
-//        init {
-//            itemView.setOnClickListener { onClick(movies[adapterPosition]) }
-//        }
+        init {
+            itemView.setOnClickListener { onClick(movies[adapterPosition]) }
+        }
 
         private val binding = ItemMoviesBinding.bind(itemView)
 

@@ -9,8 +9,12 @@ import android.view.ViewGroup
 import android.widget.Toast
 import androidx.activity.viewModels
 import androidx.fragment.app.viewModels
+import androidx.navigation.NavController
+import androidx.navigation.fragment.NavHostFragment
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
+import com.example.madlevel6task2.R
+import com.example.madlevel6task2.databinding.ActivityMainBinding
 import com.example.madlevel6task2.databinding.FragmentMovieBinding
 import com.google.android.material.snackbar.Snackbar
 import madlevel6task2.ui.adapter.MoviesAdapter
@@ -20,6 +24,19 @@ import viewModel.MovieViewModel
  * A simple [Fragment] subclass as the default destination in the navigation.
  */
 class MovieFragment : Fragment() {
+
+//    private lateinit var navController: NavController
+
+//    private lateinit var binding: ActivityMainBinding
+
+//    private lateinit var binding: FragmentMovieBinding
+
+//    setSupportActionBar(binding.toolbar)
+
+//    val navHostFragment =
+//        supportFragmentManager.findFragmentById(R.id.nav_host_fragment_content_main) as NavHostFragment
+//
+//    navController = navHostFragment.navController
 
     private val movies = arrayListOf<Movie>()
     private lateinit var moviesAdapter: MoviesAdapter
@@ -45,10 +62,12 @@ class MovieFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-//        moviesAdapter = MoviesAdapter(movies, ::onMoviesClick)
-        moviesAdapter = MoviesAdapter(movies)
+        moviesAdapter = MoviesAdapter(movies, ::onMoviesClick)
+//        moviesAdapter = MoviesAdapter(movies)
         binding.rvMovies.layoutManager = LinearLayoutManager(activity, RecyclerView.VERTICAL, false)
         binding.rvMovies.adapter = moviesAdapter
+
+
 
         //needed?
         binding.btnSubmit.setOnClickListener {
@@ -59,6 +78,8 @@ class MovieFragment : Fragment() {
         }
 
     private fun observeMovie() {
+//        binding.etYear
+
         viewModel.movies.observe(viewLifecycleOwner) {
             movies.clear()
             movies.addAll(it)
@@ -71,10 +92,18 @@ class MovieFragment : Fragment() {
         })
     }
 
-//    private fun onColorClick(colorItem: ColorItem) {
-//        Snackbar.make(binding.rvColors, "This color is: ${colorItem.name}", Snackbar.LENGTH_LONG)
-//            .show()
-//    }
+    private fun onMoviesClick(movie: Movie) {
+        Snackbar.make(binding.rvMovies, "This movie is: ${movie.original_title}", Snackbar.LENGTH_LONG)
+            .show()
+
+///XXXXX DIRECT TO SECOND FRAGMENT
+//        navController.navigate(
+//            R.id.action_MoviesFragment_to_SelectedMovieFragment
+//        )
+
+//        viewModel.connectMovieDetails()
+//        observeMovie()
+    }
 
     override fun onDestroyView() {
         super.onDestroyView()
