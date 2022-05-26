@@ -2,23 +2,20 @@ package madlevel6task2.ui.ui
 
 import Movie
 import android.os.Bundle
-import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
-import androidx.activity.viewModels
+import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
-import androidx.navigation.NavController
-import androidx.navigation.fragment.NavHostFragment
+import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
-import com.example.madlevel6task2.R
-import com.example.madlevel6task2.databinding.ActivityMainBinding
 import com.example.madlevel6task2.databinding.FragmentMovieBinding
 import com.google.android.material.snackbar.Snackbar
 import madlevel6task2.ui.adapter.MoviesAdapter
 import viewModel.MovieViewModel
+
 
 /**
  * A simple [Fragment] subclass as the default destination in the navigation.
@@ -66,6 +63,7 @@ class MovieFragment : Fragment() {
 //        moviesAdapter = MoviesAdapter(movies)
         binding.rvMovies.layoutManager = LinearLayoutManager(activity, RecyclerView.VERTICAL, false)
         binding.rvMovies.adapter = moviesAdapter
+        binding.rvMovies.setLayoutManager(GridLayoutManager(context,3))
 
 
 

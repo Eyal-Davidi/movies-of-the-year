@@ -20,7 +20,9 @@ class MoviesAdapter(private val movies: List<Movie>, private val onClick: (Movie
         context = parent.context
 
         return ViewHolder(
+//            LayoutInflater.from(context).inflate(R.layout.item_movies, parent, false)
             LayoutInflater.from(context).inflate(R.layout.item_movies, parent, false)
+//                    LinearLayoutManager
         )
     }
 

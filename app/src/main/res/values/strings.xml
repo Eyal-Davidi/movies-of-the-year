@@ -9,4 +9,7 @@
     <string name="Year">Year</string>
     <string name="submit">Submit</string>
     <string name="image_movies">image_movies</string>
+    <string name="backdrop_image">backdrop_image</string>
+    <string name="poster_image">Poster Image</string>
+    <string name="Movies_display">Movies display</string>
 </resources>
