@@ -1,4 +1,5 @@
 import com.google.gson.annotations.SerializedName
+import retrofit2.Call
 
 /*
 Copyright (c) 2022 Kotlin Data Classes Generated from JSON powered by http://www.json2kotlin.com
@@ -14,7 +15,7 @@ For support, please feel free to contact me at https://www.linkedin.com/in/syeda
 
 data class Movie (
 
-
+	// tuotorial 07:00 - each one needs return?
 	    //coorect?
          val movies: List<Movie>,
 
@@ -37,7 +38,6 @@ data class Movie (
 	@SerializedName("results") val results : List<Movie>,
 	@SerializedName("total_pages") val total_pages : Int,
 	@SerializedName("total_results") val total_results : Int
-)
-//	fun getMostPopularMovies(): Any {
-//
-//	}
+) {
+	fun getImageUrl() = "https://image.tmdb.org/t/p/w500$poster_path"
+}

@@ -1,6 +1,7 @@
 package madlevel6task2.ui.api
 
 import Movie
+import retrofit2.Call
 import retrofit2.http.GET
 import retrofit2.http.Query
 
@@ -20,9 +21,14 @@ import retrofit2.http.Query
 
 interface MovieApiService {
 
+//q
+
     // The GET method needed to retrieve a random number trivia.
 //    @GET("/random/trivia?json")
     @GET("3/discover/movie")
+//    Call<List<Movie>> getMovies()
+
+
 //    @GET("movie/550?api_key=***REMOVED***")
 //    @GET("https://api.themoviedb.org/3/genre/movie/list?api_key=***REMOVED***&language=en-US")
 //    suspend fun getRandomNumberTrivia(): Movie
@@ -31,6 +37,13 @@ interface MovieApiService {
                                       @Query("page") page:Int,
                                       @Query("api_key") apiKey:String,
                                         ) : Movie
+
+//    suspend fun getMostPopularMovies(@Query("api_key") apiKey:String,
+//                                     @Query("poster_path") posterPath:String
+//    ) : Movie
+
+//    suspend fun getMostPopularMovies(@Query("api_key") apiKey:String,
+//    ) : Movie
 
 //    suspend fun getMostPopularMovies(
 //                                     @Query("api_key") apiKey:String,

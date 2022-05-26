@@ -1,24 +1,18 @@
 package madlevel6task2.ui.api
 
+import Movie
 import okhttp3.OkHttpClient
 import okhttp3.logging.HttpLoggingInterceptor
+import retrofit2.Call
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
 
 class MovieApi {
     companion object {
         // The base url off the api.
-//        private const val baseUrl = "http://numbersapi.com/"
-//        private const val baseUrl = "https://api.themoviedb.org/3/"
         private const val baseUrl = "https://api.themoviedb.org/"
-//        private const val baseUrl = "https://api.themoviedb.org/3/genre/movie/list?api_key=***REMOVED***&language=en-US"
-
-        //https://api.themoviedb.org/3/discover/movie?api_key=***REMOVED***
-
-
-
         /**
-         * @return [TriviaApiService] The service class off the retrofit client.
+         * @return [MovieApiService] The service class off the retrofit client.
          */
         fun createApi(): MovieApiService {
             // Create an OkHttpClient to be able to make a log of the network traffic

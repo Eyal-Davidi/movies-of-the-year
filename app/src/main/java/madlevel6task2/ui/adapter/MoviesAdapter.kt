@@ -9,7 +9,6 @@ import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import com.example.madlevel6task2.R
 import com.example.madlevel6task2.databinding.ItemMoviesBinding
-import madlevel6task2.ui.api.MovieApiService
 
 //class MoviesAdapter(private val movies: List<Movie>, private val onClick: (Movie) -> Unit) :
 class MoviesAdapter(private val movies: List<Movie>) :
@@ -37,15 +36,8 @@ class MoviesAdapter(private val movies: List<Movie>) :
 
         private val binding = ItemMoviesBinding.bind(itemView)
 
-//        fun bind(movie: Movie) {
-//            Glide.with(context).load(movie.getImageUrl()).into(binding.ivColor)
-//        }
-
         fun bind(movie: Movie) {
-            Glide.with(context).load(movie).into(binding.ivMovies)
+            Glide.with(context).load(movie.getImageUrl()).into(binding.ivMovies)
         }
-
-//        suspend fun bind(movieApiService: MovieApiService) {
-//            Glide.with(context).load(movieApiService.getMostPopularMovies(year = 2020, page = 2, apiKey = "***REMOVED***")).into(binding.ivMovies)
     }
 }

@@ -56,22 +56,7 @@ class MovieFragment : Fragment() {
             viewModel.connectMovies()
             observeMovie()
         }
-
-//        observeMovie()
-
         }
-
-//    private fun observeMovie() {
-//        viewModel.movie.observe(viewLifecycleOwner, {
-////            binding.try2.text = it?.text
-//            binding.try2.text = it?.name
-//        })
-//
-//        // Observe the error message.
-//        viewModel.errorText.observe(viewLifecycleOwner, {
-//            Toast.makeText(activity, it, Toast.LENGTH_SHORT).show()
-//        })
-//    }
 
     private fun observeMovie() {
         viewModel.movies.observe(viewLifecycleOwner) {

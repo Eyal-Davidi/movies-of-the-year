@@ -49,6 +49,4 @@ class MovieViewModel(application: Application) : AndroidViewModel(application) {
             }
         }
     }
-
-
 }
