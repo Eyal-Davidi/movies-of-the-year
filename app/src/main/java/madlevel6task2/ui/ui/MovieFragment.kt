@@ -8,9 +8,12 @@ import android.view.ViewGroup
 import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
+import androidx.navigation.NavController
+import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
+import com.example.madlevel6task2.R
 import com.example.madlevel6task2.databinding.FragmentMovieBinding
 import com.google.android.material.snackbar.Snackbar
 import madlevel6task2.ui.adapter.MoviesAdapter
@@ -22,24 +25,11 @@ import viewModel.MovieViewModel
  */
 class MovieFragment : Fragment() {
 
-//    private lateinit var navController: NavController
-
-//    private lateinit var binding: ActivityMainBinding
-
-//    private lateinit var binding: FragmentMovieBinding
-
-//    setSupportActionBar(binding.toolbar)
-
-//    val navHostFragment =
-//        supportFragmentManager.findFragmentById(R.id.nav_host_fragment_content_main) as NavHostFragment
-//
-//    navController = navHostFragment.navController
-
     private val movies = arrayListOf<Movie>()
     private lateinit var moviesAdapter: MoviesAdapter
 
     private val viewModel: MovieViewModel by viewModels()
-//private val viewModel: TriviaViewModel by activityViewModels()
+//    private val viewModel: MovieViewModel by activityViewModels()
 
     private var _binding: FragmentMovieBinding? = null
 
@@ -63,9 +53,7 @@ class MovieFragment : Fragment() {
 //        moviesAdapter = MoviesAdapter(movies)
         binding.rvMovies.layoutManager = LinearLayoutManager(activity, RecyclerView.VERTICAL, false)
         binding.rvMovies.adapter = moviesAdapter
-        binding.rvMovies.setLayoutManager(GridLayoutManager(context,3))
-
-
+        binding.rvMovies.setLayoutManager(GridLayoutManager(context, 3))
 
         //needed?
         binding.btnSubmit.setOnClickListener {
@@ -73,7 +61,7 @@ class MovieFragment : Fragment() {
             viewModel.connectMovies()
             observeMovie()
         }
-        }
+    }
 
     private fun observeMovie() {
 //        binding.etYear
@@ -91,13 +79,17 @@ class MovieFragment : Fragment() {
     }
 
     private fun onMoviesClick(movie: Movie) {
-        Snackbar.make(binding.rvMovies, "This movie is: ${movie.original_title}", Snackbar.LENGTH_LONG)
-            .show()
+//        private fun onMoviesClick() {
 
-///XXXXX DIRECT TO SECOND FRAGMENT
-//        navController.navigate(
-//            R.id.action_MoviesFragment_to_SelectedMovieFragment
+//        Snackbar.make(
+//            binding.rvMovies,
+//            "This movie is: ${movie.original_title}",
+//            Snackbar.LENGTH_LONG
 //        )
+//            .show()
+            findNavController().navigate(
+                R.id.action_MoviesFragment_to_SelectedMovieFragment
+            )
 
 //        viewModel.connectMovieDetails()
 //        observeMovie()
