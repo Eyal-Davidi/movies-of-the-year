@@ -12,4 +12,13 @@
     <string name="backdrop_image">backdrop_image</string>
     <string name="poster_image">Poster Image</string>
     <string name="Movies_display">Movies display</string>
+    <string name="movietitle">movieTitle</string>
+    <string name="date" />
+    <string name="overview">Overview</string>
+    <string name="ratingtext" />
+    <string name="overviewtext" />
+    <string name="ratingstar">ratingStar</string>
+    <string name="ratingStar" />
+    <string name="ratingText">ratingText</string>
+    <string name="overviewText">overviewText</string>
 </resources>
