@@ -17,27 +17,31 @@ data class Movie (
 
 	// tuotorial 07:00 - each one needs return?
 	    //coorect?
-         val movies: List<Movie>,
+         var movies: List<Movie>,
 
-	@SerializedName("adult") val adult : Boolean,
+//	@SerializedName("adult") val adult : Boolean,
 	@SerializedName("backdrop_path") val backdrop_path : String,
-	@SerializedName("genre_ids") val genre_ids : List<Int>,
-	@SerializedName("id") val id : Int,
-	@SerializedName("original_language") val original_language : String,
+//	@SerializedName("genre_ids") val genre_ids : List<Int>,
+//	@SerializedName("id") val id : Int,
+//	@SerializedName("original_language") val original_language : String,
 	@SerializedName("original_title") val original_title : String,
 	@SerializedName("overview") val overview : String,
-	@SerializedName("popularity") val popularity : Double,
+//	@SerializedName("popularity") val popularity : Double,
 	@SerializedName("poster_path") val poster_path : String,
 	@SerializedName("release_date") val release_date : String,
-	@SerializedName("title") val title : String,
-	@SerializedName("video") val video : Boolean,
-	@SerializedName("vote_average") val vote_average : Double,
-	@SerializedName("vote_count") val vote_count : Int,
+//	@SerializedName("title") val title : String,
+//	@SerializedName("video") val video : Boolean,
+//	@SerializedName("vote_average") val vote_average : Double,
+//	@SerializedName("vote_count") val vote_count : Int,
 
-	@SerializedName("page") val page : Int,
+//	@SerializedName("page") val page : Int,
 	@SerializedName("results") val results : List<Movie>,
-	@SerializedName("total_pages") val total_pages : Int,
-	@SerializedName("total_results") val total_results : Int
+//	@SerializedName("total_pages") val total_pages : Int,
+//	@SerializedName("total_results") val total_results : Int
 ) {
-	fun getImageUrl() = "https://image.tmdb.org/t/p/w500$poster_path"
+	fun getPoster() = "https://image.tmdb.org/t/p/w500$poster_path"
 }
+
+//{
+//	fun getTitle() = "https://image.tmdb.org/t/p/w500$title"
+//}

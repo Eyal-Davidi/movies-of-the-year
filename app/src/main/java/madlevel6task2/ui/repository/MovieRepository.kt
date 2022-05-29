@@ -38,11 +38,14 @@ class MovieRepository {
     /**
      * suspend function that calls a suspend function from the numbersApi call
      */
+//    suspend fun getMostPopularMovies(movie: Movie)
     suspend fun getMostPopularMovies() {
         try {
             //timeout the request after 5 seconds
             val result = withTimeout(5_000) {
 //                movieApiService.getMostPopularMovies(year = binding.etYear.text.toString(), page =1, apiKey = "***REMOVED***")
+
+//                movieApiService.getMostPopularMovies(title = "Story Toy 2", year = "1999", page =1, apiKey = "***REMOVED***")
                 movieApiService.getMostPopularMovies(year = "1999", page =1, apiKey = "***REMOVED***")
             }
 
@@ -52,12 +55,13 @@ class MovieRepository {
         }
     }
 
-    suspend fun getMovieDetails(){
+    suspend fun getMovieDetails(movie: Movie){
         try {
             //timeout the request after 5 seconds
             val result = withTimeout(5_000) {
 //                movieApiService.getMostPopularMovies(year = binding.etYear.text.toString(), page =1, apiKey = "***REMOVED***")
-                movieApiService.getMovieDetails("2009" )
+                movieApiService.getMovieDetails(year = "1999", page =1, apiKey = "***REMOVED***")
+//                movieApiService.getMovieDetails(rating = 8.3, apiKey = "***REMOVED***" )
             }
 
             _movies.value = result.results

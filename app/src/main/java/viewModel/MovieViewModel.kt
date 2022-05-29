@@ -1,5 +1,6 @@
 package viewModel
 
+import Movie
 import android.app.Application
 import android.util.Log
 import androidx.lifecycle.AndroidViewModel
@@ -10,6 +11,17 @@ import kotlinx.coroutines.launch
 import madlevel6task2.ui.repository.MovieRepository
 
 class MovieViewModel(application: Application) : AndroidViewModel(application) {
+
+    //XXXXNEW
+    // variable to contain message whenever
+    // it gets changed/modified(mutable)
+    val message = MutableLiveData<String>()
+    // function to send message
+    fun sendMessage(text: String) {
+        message.value = text
+    }
+
+
     private val movieRepository = MovieRepository()
 
     /**
@@ -50,12 +62,13 @@ class MovieViewModel(application: Application) : AndroidViewModel(application) {
         }
     }
 
-    fun connectMovieDetails() {
+    fun connectMovieDetails(movie: Movie) {
+//    fun connectMovieDetails() {
         viewModelScope. launch {
             try {
                 //the triviaRepository sets it's own livedata property
                 //our own trivia property points to this one
-                movieRepository.getMovieDetails()
+                movieRepository.getMovieDetails(movie)
             } catch (error: MovieRepository.MovieRefreshError) {
                 _errorText.value = error.message
                 Log.e("Movie error", error.cause.toString())
