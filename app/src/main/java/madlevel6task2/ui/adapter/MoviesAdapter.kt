@@ -7,6 +7,7 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
+import com.bumptech.glide.load.resource.drawable.DrawableTransitionOptions
 import com.example.madlevel6task2.R
 import com.example.madlevel6task2.databinding.FragmentSelectedMovieBinding
 import com.example.madlevel6task2.databinding.ItemMoviesBinding
@@ -33,22 +34,21 @@ class MoviesAdapter(private val movies: List<Movie>, private val onClick: (Movie
     inner class ViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
         init {
             itemView.setOnClickListener { onClick(movies[adapterPosition]) }
-//            itemView2.setOnClickListener { onClick(movies[adapterPosition]) }
         }
 
         private val binding = ItemMoviesBinding.bind(itemView)
 
         fun bind(movie: Movie) {
-            Glide.with(context).load(movie.getPosterImage()).into(binding.ivMovies)
-//            Glide.with(context).load(movie.getPoster()).into(binding.ivPosterImage)
+//            Glide.with(context).load(movie.getPosterImage()).into(binding.ivMovies)
+            Glide
+                .with(context)
+                .load(movie.getPosterImage())
+                .placeholder(R.drawable.loading_action)
+                .error(R.drawable.error_action)
+                .transition(DrawableTransitionOptions.withCrossFade())
+                .into(binding.ivMovies)
         }
-
     }
 
-//    private val binding = FragmentSelectedMovieBinding.bind(itemView2)
-//
-//    fun bind(movie: Movie) {
-////        Glide.with(context).load(movie.getPoster()).into(binding.ivMovies)
-//        Glide.with(context).load(movie.getPoster()).into(binding.ivPosterImage)
 //    }
 }

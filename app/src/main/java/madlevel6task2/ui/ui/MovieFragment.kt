@@ -124,12 +124,12 @@ class MovieFragment : Fragment() {
 
     private fun onMoviesClick(movie : Movie) {
 
-        Snackbar.make(
-            binding.rvMovies,
-            "This movie is: ${movie.original_title}",
-            Snackbar.LENGTH_LONG
-        )
-            .show()
+//        Snackbar.make(
+//            binding.rvMovies,
+//            "This movie is: ${movie.original_title}",
+//            Snackbar.LENGTH_LONG
+//        )
+//            .show()
 
         ///XXXNEW
 //        writeMSg = movie.original_title

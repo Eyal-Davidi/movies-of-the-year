@@ -12,7 +12,7 @@ interface MovieApiService {
     @GET("3/discover/movie")
 
      suspend fun getMostPopularMovies(@Query("primary_release_year") year: String,
-                                      @Query("page") page: Int,
+//                                      @Query("page") page: Int,
                                       @Query("api_key") apiKey:String,
 //                                      @Query("title") title: String
                                         ) : Movie
@@ -31,7 +31,7 @@ interface MovieApiService {
 //            @Query("api_key") apiKey:String,) : Movie
 
     suspend fun getMovieDetails(@Query("primary_release_year") year: String,
-                                     @Query("page") page: Int,
+//                                     @Query("page") page: Int,
                                      @Query("api_key") apiKey:String,
 //                                      @Query("title") title: String
     ) : Movie
