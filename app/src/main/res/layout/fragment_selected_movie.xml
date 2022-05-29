@@ -47,7 +47,7 @@
         android:id="@+id/overview"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="216dp"
+        android:layout_marginStart="28dp"
         android:layout_marginTop="32dp"
         android:text="Overview"
         app:layout_constraintStart_toStartOf="parent"

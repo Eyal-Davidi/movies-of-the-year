@@ -6,13 +6,10 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.TextView
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
 import com.bumptech.glide.Glide
-import com.example.madlevel6task2.R
 import com.example.madlevel6task2.databinding.FragmentSelectedMovieBinding
-import madlevel6task2.ui.api.MovieApiService
 import viewModel.MovieViewModel
 
 /**
@@ -22,7 +19,8 @@ class SelectedMovieFragment : Fragment() {
 
     //XXXNEW
         // to contain and display shared message
-        lateinit var displayMsg: TextView
+//        lateinit var displayMsg: TextView
+    lateinit var displayMovie: Movie
 
 
 
@@ -52,32 +50,30 @@ class SelectedMovieFragment : Fragment() {
         //XXXNEW
         // reference for the container declared above
 //        displayMsg = view.findViewById(R.id.textViewReceiver)
-        displayMsg = binding.movieTitle
+
+
+//        displayMsg = binding.movieTitle
+        //YYY
+//        displayMsg = movie
 
         // create object of SharedViewModel
         val model = ViewModelProvider(requireActivity()).get(MovieViewModel::class.java)
         // observing the change in the message declared in SharedViewModel
         model.message.observe(viewLifecycleOwner, Observer {
             // updating data in displayMsg
-            displayMsg.text = it
+//            displayMsg.text = it
+            displayMovie = it
+
+            binding.movieTitle.text = displayMovie.original_title
+            binding.overview.text = displayMovie.overview
+            binding.releaseDate.text = displayMovie.release_date
+            binding.rating.text = displayMovie.vote_average.toString()
+
+            context?.let { it1 -> Glide.with(it1).load(displayMovie.getPosterImage()).into(binding.ivPosterImage) }
+
+            context?.let { it1 -> Glide.with(it1).load(displayMovie.getBackdropImage()).into(binding.ivBackdropImage) }
+
         })
-
-
-//        movie = movie.getMovieDetails(8.3, "***REMOVED***")
-
-//
-//        binding.movieTitle.text = movies[0].original_title
-
-//        binding.movieTitle.text = movie.original_title
-
-//        context?.let { Glide.with(it).load(movie.getPoster()).into(binding.ivPosterImage) }
-//        Glide.with()
-
-//        binding.btnSubmit.setOnClickListener {
-////            viewModel.getMostPopularMovies()
-//            viewModel.connectMovies()
-//            observeMovie()
-//        }
     }
 
     override fun onDestroyView() {

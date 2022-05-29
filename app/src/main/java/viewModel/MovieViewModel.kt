@@ -15,10 +15,11 @@ class MovieViewModel(application: Application) : AndroidViewModel(application) {
     //XXXXNEW
     // variable to contain message whenever
     // it gets changed/modified(mutable)
-    val message = MutableLiveData<String>()
+    val message = MutableLiveData<Movie>()
     // function to send message
-    fun sendMessage(text: String) {
-        message.value = text
+//    fun sendMessage(text: String) {
+    fun sendMessage(movie: Movie) {
+        message.value = movie
     }
 
 

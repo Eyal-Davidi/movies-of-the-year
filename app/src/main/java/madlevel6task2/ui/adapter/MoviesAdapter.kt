@@ -39,7 +39,7 @@ class MoviesAdapter(private val movies: List<Movie>, private val onClick: (Movie
         private val binding = ItemMoviesBinding.bind(itemView)
 
         fun bind(movie: Movie) {
-            Glide.with(context).load(movie.getPoster()).into(binding.ivMovies)
+            Glide.with(context).load(movie.getPosterImage()).into(binding.ivMovies)
 //            Glide.with(context).load(movie.getPoster()).into(binding.ivPosterImage)
         }
 
