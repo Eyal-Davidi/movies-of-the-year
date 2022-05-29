@@ -6,6 +6,8 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
+import androidx.core.view.isGone
+import androidx.core.view.isInvisible
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.ViewModelProvider
@@ -25,14 +27,7 @@ import viewModel.MovieViewModel
  */
 class MovieFragment : Fragment() {
 
-    //XXXNEW
-
-    // to write message
-//    lateinit var writeMSg: EditText
-
-//    lateinit var writeMSg: String
     lateinit var sendMovie: Movie
-
 
     private val movies = arrayListOf<Movie>()
     private lateinit var moviesAdapter: MoviesAdapter
@@ -74,13 +69,14 @@ class MovieFragment : Fragment() {
 
 
         moviesAdapter = MoviesAdapter(movies, ::onMoviesClick)
-//        moviesAdapter = MoviesAdapter(movies)
         binding.rvMovies.layoutManager = LinearLayoutManager(activity, RecyclerView.VERTICAL, false)
         binding.rvMovies.adapter = moviesAdapter
         binding.rvMovies.setLayoutManager(GridLayoutManager(context, 3))
-//        binding.try2.text = movies.toString()
 
         binding.btnSubmit.setOnClickListener {
+
+            binding.progressBar.isInvisible = view.isActivated
+
 //            viewModel.getMostPopularMovies()
             viewModel.connectMovies()
 //            viewModel.connectMovieDetails()
@@ -92,11 +88,12 @@ class MovieFragment : Fragment() {
 //        binding.etYear
 
         viewModel.movies.observe(viewLifecycleOwner) {
-//            binding.try2.text = movies.
 
             movies.clear()
             movies.addAll(it)
             moviesAdapter.notifyDataSetChanged()
+
+            binding.progressBar.visibility = View.INVISIBLE
         }
 
         // Observe the error message.
