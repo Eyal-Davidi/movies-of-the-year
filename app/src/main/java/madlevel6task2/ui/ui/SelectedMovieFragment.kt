@@ -65,7 +65,7 @@ class SelectedMovieFragment : Fragment() {
             displayMovie = it
 
             binding.movieTitle.text = displayMovie.original_title
-            binding.overview.text = displayMovie.overview
+            binding.overviewDisplay.text = displayMovie.overview
             binding.releaseDate.text = displayMovie.release_date
             binding.rating.text = displayMovie.vote_average.toString()
 
