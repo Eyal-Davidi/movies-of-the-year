@@ -4,6 +4,7 @@ import Movie
 import android.provider.Settings.Global.getString
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
+import com.example.madlevel6task2.BuildConfig
 import com.example.madlevel6task2.R
 import com.example.madlevel6task2.databinding.FragmentMovieBinding
 import kotlinx.coroutines.withTimeout
@@ -46,7 +47,8 @@ class MovieRepository {
             //timeout the request after 5 seconds
             val result = withTimeout(5_000) {
 
-                    val apiKey = "***REMOVED***"
+//                    val apiKey = "***REMOVED***"
+                val apiKey = BuildConfig.MY_KEY
                     movieApiService.getMostPopularMovies(year = year, apiKey = apiKey)
                 }
 
