@@ -15,8 +15,6 @@ For support, please feel free to contact me at https://www.linkedin.com/in/syeda
 
 data class Movie (
 
-	// tuotorial 07:00 - each one needs return?
-	    //coorect?
          var movies: List<Movie>,
 
 	@SerializedName("adult") val adult : Boolean,

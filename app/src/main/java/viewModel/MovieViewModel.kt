@@ -50,12 +50,12 @@ class MovieViewModel(application: Application) : AndroidViewModel(application) {
 
     // XXXXX NEEDED?
 //    fun getMostPopularMovies() {
-    fun connectMovies() {
+    fun connectMovies(year: String) {
         viewModelScope. launch {
             try {
                 //the triviaRepository sets it's own livedata property
                 //our own trivia property points to this one
-                movieRepository.getMostPopularMovies()
+                movieRepository.getMostPopularMovies(year)
             } catch (error: MovieRepository.MovieRefreshError) {
                 _errorText.value = error.message
                 Log.e("Movie error", error.cause.toString())
@@ -63,13 +63,13 @@ class MovieViewModel(application: Application) : AndroidViewModel(application) {
         }
     }
 
-    fun connectMovieDetails(movie: Movie) {
+    fun connectMovieDetails() {
 //    fun connectMovieDetails() {
         viewModelScope. launch {
             try {
                 //the triviaRepository sets it's own livedata property
                 //our own trivia property points to this one
-                movieRepository.getMovieDetails(movie)
+                movieRepository.getMovieDetails()
             } catch (error: MovieRepository.MovieRefreshError) {
                 _errorText.value = error.message
                 Log.e("Movie error", error.cause.toString())

@@ -30,9 +30,10 @@ interface MovieApiService {
 //            @Query("rating") rating: Double,
 //            @Query("api_key") apiKey:String,) : Movie
 
-    suspend fun getMovieDetails(@Query("primary_release_year") year: String,
+    suspend fun getMovieDetails(
+//        @Query("primary_release_year") year: String,
 //                                     @Query("page") page: Int,
-                                     @Query("api_key") apiKey:String,
+//                                     @Query("api_key") apiKey:String,
 //                                      @Query("title") title: String
     ) : Movie
 }

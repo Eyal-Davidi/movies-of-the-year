@@ -61,7 +61,7 @@ class MovieFragment : Fragment() {
 //        writeMSg = binding.rvMovies.movie.original_title
 
         // create object of SharedViewModel
-        val model = ViewModelProvider(requireActivity()).get(MovieViewModel::class.java)
+//        val model = ViewModelProvider(requireActivity()).get(MovieViewModel::class.java)
 
         // call function "sendMessage" defined in SharedVieModel
         // to store the value in message.
@@ -78,7 +78,7 @@ class MovieFragment : Fragment() {
             binding.progressBar.isInvisible = view.isActivated
 
 //            viewModel.getMostPopularMovies()
-            viewModel.connectMovies()
+            viewModel.connectMovies(binding.etYear.text.toString())
 //            viewModel.connectMovieDetails()
             observeMovie()
         }
@@ -102,11 +102,10 @@ class MovieFragment : Fragment() {
         })
     }
 
-    private fun observeMovieDetails(movie: Movie) {
+    private fun observeMovieDetails() {
 //        binding.etYear
 
         viewModel.movies.observe(viewLifecycleOwner) {
-//            binding.try2.text = movies.
 
             movies.clear()
             movies.addAll(it)
@@ -143,9 +142,9 @@ class MovieFragment : Fragment() {
 
 //        movie = binding.rvMovies.movie.original_title
 
-            viewModel.connectMovieDetails(movie)
+            viewModel.connectMovieDetails()
         //observemovie2
-            observeMovieDetails(movie)
+            observeMovieDetails()
 
 //        setFragmentResult(REQ_PORTAL_KEY, bundleOf(Pair(BUNDLE_PORTAL_KEY,Portal(portalText, portalUrl))))
             findNavController().navigate(

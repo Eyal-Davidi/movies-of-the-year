@@ -41,25 +41,10 @@ class MovieRepository {
      * suspend function that calls a suspend function from the numbersApi call
      */
 //    suspend fun getMostPopularMovies(movie: Movie)
-    suspend fun getMostPopularMovies() {
+    suspend fun getMostPopularMovies(year: String) {
         try {
             //timeout the request after 5 seconds
             val result = withTimeout(5_000) {
-
-//                    var year = binding.etYear.text.toString()
-                var year = "1998"
-
-//                movieApiService.getMostPopularMovies(year = "1999", page =1, apiKey = "***REMOVED***")
-//                movieApiService.getMostPopularMovies(year = year, apiKey = "***REMOVED***")
-//                movieApiService.getMostPopularMovies(year = year, apiKey = "***REMOVED***")
-//                val apiKey = getString(R.string.apiKey.toString()),
-
-//                Parse.initialize(
-//                    this,
-//                    R.string.apiKey.toString()
-//                )
-
-//                val apiKey = R.string.apiKey.toString()
 
                     val apiKey = "***REMOVED***"
                     movieApiService.getMostPopularMovies(year = year, apiKey = apiKey)
@@ -72,12 +57,12 @@ class MovieRepository {
         }
     }
 
-    suspend fun getMovieDetails(movie: Movie){
+    suspend fun getMovieDetails(){
         try {
             //timeout the request after 5 seconds
             val result = withTimeout(5_000) {
 //                movieApiService.getMostPopularMovies(year = binding.etYear.text.toString(), page =1, apiKey = "***REMOVED***")
-                movieApiService.getMovieDetails(year = "1999", apiKey = "***REMOVED***")
+                movieApiService.getMovieDetails()
 //                movieApiService.getMovieDetails(rating = 8.3, apiKey = "***REMOVED***" )
             }
 
