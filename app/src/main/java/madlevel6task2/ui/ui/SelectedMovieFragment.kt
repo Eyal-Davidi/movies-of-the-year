@@ -14,7 +14,7 @@ import com.example.madlevel6task2.R
 import com.example.madlevel6task2.databinding.FragmentSelectedMovieBinding
 import viewModel.MovieViewModel
 
-/**
+/**1989
  * A simple [Fragment] subclass as the second destination in the navigation.
  */
 class SelectedMovieFragment : Fragment() {
@@ -23,8 +23,6 @@ class SelectedMovieFragment : Fragment() {
         // to contain and display shared message
 //        lateinit var displayMsg: TextView
     lateinit var displayMovie: Movie
-
-
 
 //    private val movies = arrayListOf<Movie>()
 

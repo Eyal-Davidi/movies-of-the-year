@@ -43,12 +43,11 @@ class MoviesAdapter(private val movies: List<Movie>, private val onClick: (Movie
             Glide
                 .with(context)
                 .load(movie.getPosterImage())
+//                .centerCrop()
                 .placeholder(R.drawable.loading_action)
                 .error(R.drawable.error_action)
                 .transition(DrawableTransitionOptions.withCrossFade())
                 .into(binding.ivMovies)
         }
     }
-
-//    }
 }

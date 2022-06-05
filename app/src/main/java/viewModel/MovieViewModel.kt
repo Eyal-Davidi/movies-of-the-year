@@ -22,7 +22,6 @@ class MovieViewModel(application: Application) : AndroidViewModel(application) {
         message.value = movie
     }
 
-
     private val movieRepository = MovieRepository()
 
     /**

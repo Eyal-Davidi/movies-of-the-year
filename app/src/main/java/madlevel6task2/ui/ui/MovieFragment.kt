@@ -131,7 +131,6 @@ class MovieFragment : Fragment() {
 //        writeMSg = movie.original_title
         sendMovie = movie
 
-
         val model = ViewModelProvider(requireActivity()).get(MovieViewModel::class.java)
 
 //        btn.setOnClickListener { model.sendMessage(writeMSg.text.toString()) }
