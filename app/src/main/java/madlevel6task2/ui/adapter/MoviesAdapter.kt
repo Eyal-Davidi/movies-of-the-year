@@ -21,7 +21,6 @@ class MoviesAdapter(private val movies: List<Movie>, private val onClick: (Movie
         context = parent.context
 
         return ViewHolder(
-//            LayoutInflater.from(context).inflate(R.layout.item_movies, parent, false)
             LayoutInflater.from(context).inflate(R.layout.item_movies, parent, false)
         )
     }
@@ -30,7 +29,6 @@ class MoviesAdapter(private val movies: List<Movie>, private val onClick: (Movie
 
     override fun onBindViewHolder(holder: ViewHolder, position: Int) = holder.bind(movies[position])
 
-    //    inner class ViewHolder(itemView: View, itemView2: View) : RecyclerView.ViewHolder(itemView) {
     inner class ViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
         init {
             itemView.setOnClickListener { onClick(movies[adapterPosition]) }
@@ -43,8 +41,7 @@ class MoviesAdapter(private val movies: List<Movie>, private val onClick: (Movie
             Glide
                 .with(context)
                 .load(movie.getPosterImage())
-//                .centerCrop()
-                .placeholder(R.drawable.loading_action)
+//                .placeholder(R.drawable.loading_action)
                 .error(R.drawable.error_action)
                 .transition(DrawableTransitionOptions.withCrossFade())
                 .into(binding.ivMovies)

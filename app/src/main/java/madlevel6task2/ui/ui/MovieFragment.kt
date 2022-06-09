@@ -33,7 +33,6 @@ class MovieFragment : Fragment() {
     private lateinit var moviesAdapter: MoviesAdapter
 
     private val viewModel: MovieViewModel by viewModels()
-//    private val viewModel: MovieViewModel by activityViewModels()
 
     private var _binding: FragmentMovieBinding? = null
 
@@ -53,40 +52,20 @@ class MovieFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        //XXXNEW
-        // reference for button and EditText
-//        btn = view.findViewById(R.id.button)
-//        writeMSg = view.findViewById(R.id.writeMessage)
-
-//        writeMSg = binding.rvMovies.movie.original_title
-
-        // create object of SharedViewModel
-//        val model = ViewModelProvider(requireActivity()).get(MovieViewModel::class.java)
-
-        // call function "sendMessage" defined in SharedVieModel
-        // to store the value in message.
-//        btn.setOnClickListener { model.sendMessage(writeMSg.text.toString()) }
-
-
         moviesAdapter = MoviesAdapter(movies, ::onMoviesClick)
         binding.rvMovies.layoutManager = LinearLayoutManager(activity, RecyclerView.VERTICAL, false)
         binding.rvMovies.adapter = moviesAdapter
         binding.rvMovies.setLayoutManager(GridLayoutManager(context, 3))
 
         binding.btnSubmit.setOnClickListener {
+            binding.progressBar.visibility = View.VISIBLE
 
-            binding.progressBar.isInvisible = view.isActivated
-
-//            viewModel.getMostPopularMovies()
             viewModel.connectMovies(binding.etYear.text.toString())
-//            viewModel.connectMovieDetails()
             observeMovie()
         }
     }
 
     private fun observeMovie() {
-//        binding.etYear
-
         viewModel.movies.observe(viewLifecycleOwner) {
 
             movies.clear()
@@ -103,8 +82,6 @@ class MovieFragment : Fragment() {
     }
 
     private fun observeMovieDetails() {
-//        binding.etYear
-
         viewModel.movies.observe(viewLifecycleOwner) {
 
             movies.clear()
@@ -119,40 +96,16 @@ class MovieFragment : Fragment() {
     }
 
     private fun onMoviesClick(movie : Movie) {
-
-//        Snackbar.make(
-//            binding.rvMovies,
-//            "This movie is: ${movie.original_title}",
-//            Snackbar.LENGTH_LONG
-//        )
-//            .show()
-
-        ///XXXNEW
-//        writeMSg = movie.original_title
         sendMovie = movie
-
         val model = ViewModelProvider(requireActivity()).get(MovieViewModel::class.java)
-
-//        btn.setOnClickListener { model.sendMessage(writeMSg.text.toString()) }
         model.sendMessage(sendMovie)
 
-
-
-
-//        movie = binding.rvMovies.movie.original_title
-
             viewModel.connectMovieDetails()
-        //observemovie2
             observeMovieDetails()
 
-//        setFragmentResult(REQ_PORTAL_KEY, bundleOf(Pair(BUNDLE_PORTAL_KEY,Portal(portalText, portalUrl))))
             findNavController().navigate(
                 R.id.action_MoviesFragment_to_SelectedMovieFragment
             )
-
-//        viewModel.connectMovieDetails()
-
-//        observeMovie()
     }
 
     override fun onDestroyView() {

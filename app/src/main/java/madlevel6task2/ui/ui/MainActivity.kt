@@ -15,7 +15,6 @@ import com.example.madlevel6task2.databinding.ActivityMainBinding
 
 class MainActivity : AppCompatActivity() {
 
-    //    private lateinit var appBarConfiguration: AppBarConfiguration
     private lateinit var binding: ActivityMainBinding
 
     override fun onCreate(savedInstanceState: Bundle?) {

@@ -12,12 +12,7 @@ import madlevel6task2.ui.repository.MovieRepository
 
 class MovieViewModel(application: Application) : AndroidViewModel(application) {
 
-    //XXXXNEW
-    // variable to contain message whenever
-    // it gets changed/modified(mutable)
     val message = MutableLiveData<Movie>()
-    // function to send message
-//    fun sendMessage(text: String) {
     fun sendMessage(movie: Movie) {
         message.value = movie
     }
@@ -28,9 +23,7 @@ class MovieViewModel(application: Application) : AndroidViewModel(application) {
      * This property points direct to the LiveData in the repository, that value
      * get's updated when user clicks FAB. This happens through the refreshNumber() in this class :)
      */
-    //val movies = movieRepository.movie
     val movies = movieRepository.movies
-
 
     private val _errorText: MutableLiveData<String> = MutableLiveData()
 
@@ -47,8 +40,6 @@ class MovieViewModel(application: Application) : AndroidViewModel(application) {
      * Extension method of lifecycle-viewmodel-ktx library
      */
 
-    // XXXXX NEEDED?
-//    fun getMostPopularMovies() {
     fun connectMovies(year: String) {
         viewModelScope. launch {
             try {
@@ -63,7 +54,6 @@ class MovieViewModel(application: Application) : AndroidViewModel(application) {
     }
 
     fun connectMovieDetails() {
-//    fun connectMovieDetails() {
         viewModelScope. launch {
             try {
                 //the triviaRepository sets it's own livedata property

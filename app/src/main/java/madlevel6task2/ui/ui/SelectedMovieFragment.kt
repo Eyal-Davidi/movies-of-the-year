@@ -19,14 +19,8 @@ import viewModel.MovieViewModel
  */
 class SelectedMovieFragment : Fragment() {
 
-    //XXXNEW
         // to contain and display shared message
-//        lateinit var displayMsg: TextView
     lateinit var displayMovie: Movie
-
-//    private val movies = arrayListOf<Movie>()
-
-//    private lateinit var movie : Movie
 
     private var _binding: FragmentSelectedMovieBinding? = null
 
@@ -41,27 +35,14 @@ class SelectedMovieFragment : Fragment() {
 
         _binding = FragmentSelectedMovieBinding.inflate(inflater, container, false)
         return binding.root
-
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-
-        //XXXNEW
-        // reference for the container declared above
-//        displayMsg = view.findViewById(R.id.textViewReceiver)
-
-
-//        displayMsg = binding.movieTitle
-        //YYY
-//        displayMsg = movie
-
         // create object of SharedViewModel
         val model = ViewModelProvider(requireActivity()).get(MovieViewModel::class.java)
         // observing the change in the message declared in SharedViewModel
         model.message.observe(viewLifecycleOwner, Observer {
-            // updating data in displayMsg
-//            displayMsg.text = it
             displayMovie = it
 
             binding.movieTitle.text = displayMovie.original_title
